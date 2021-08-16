@@ -138,7 +138,8 @@ public class AddressBook {
 			System.out.println("2. Edit contact details");
 			System.out.println("3. Delete contact details");
 			System.out.println("4. Show contacts details");
-			System.out.println("5. Back to main menu");
+			System.out.println("5. Sort Address Book");
+			System.out.println("6. Back to main menu");
 			System.out.print("Enter Your choice: ");
 			int choice = sc.nextInt();
 			sc.nextLine();
@@ -189,8 +190,11 @@ public class AddressBook {
 				case 4:
 					System.out.println(toString()); // call tostring method for showing details
 					break;
-
 				case 5:
+					sortByOption();
+					break;
+
+				case 6:
 					return;
 				default:
 					System.out.println("Invalid Choice!");
@@ -227,6 +231,32 @@ public class AddressBook {
 		}
 	}
 
+
+	//method for view element by option
+	      public static void viewByOption(Map<String, AddressBook> addressBookMap) {
+		System.out.println("1. View By name");
+		System.out.println("2. View By city");
+		System.out.println("3. View By state");
+		System.out.println("4. Back");
+		System.out.print("Enter Your choice: ");
+		int choice = sc.nextInt();
+		sc.nextLine();
+		switch (choice) {
+			case 1:
+				viewByName(nameHashMap);
+				break;
+			case 2:
+				viewByCity(cityHashMap);
+				break;
+			case 3:
+				viewByState(stateHashMap);
+				break;
+			case 4:
+				return;
+			default:
+				System.out.println("INVALID CHOICE!");
+		}
+	}
 	public static void countByOption() {
 		System.out.println("1. Count City ");
 		System.out.println("2. Count State");
@@ -249,6 +279,40 @@ public class AddressBook {
 				return;
 			default:
 				System.out.println("Invalid Option");
+		}
+	}
+	public static void sortByOption() {
+		System.out.println("1. By first name");
+		System.out.println("2. By last name");
+		System.out.println("3. By city");
+		System.out.println("4. By state");
+		System.out.println("5. By zip");
+		System.out.println("6. Back");
+		System.out.print("Your choice: ");
+
+		int choice = sc.nextInt();
+		sc.nextLine();
+		switch (choice) {
+			case 1:
+				addressBook.sortBy(Contacts::getFirstName).forEach(System.out::println);
+				break;
+			case 2:
+				addressBook.sortBy(Contacts::getLastName).forEach(System.out::println);
+
+				break;
+			case 3:
+				addressBook.sortBy(Contacts::getCity).forEach(System.out::println);
+				break;
+			case 4:
+				addressBook.sortBy(Contacts::getState).forEach(System.out::println);
+				break;
+			case 5:
+				addressBook.sortByZip(Contacts::getZipCode).forEach(System.out::println);
+				break;
+			case 6:
+				return;
+			default:
+				System.out.println("INVALID CHOICE!");
 		}
 	}
 
