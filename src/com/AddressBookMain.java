@@ -17,7 +17,9 @@ public class AddressBookMain {
 			System.out.println("4. Search Contact Data");
 			System.out.println("5. View Contact Data");
 			System.out.println("6. Count Contacts ");
-			
+			System.out.println("7. Write data");
+			System.out.println("8. Read data");
+			System.out.println("9. Exit");
 			System.out.print("Enter Your choice: ");
 			int choice = sc.nextInt();
 			sc.nextLine();
@@ -67,8 +69,18 @@ public class AddressBookMain {
 					System.out.println("Welcome to the couter");
 					addressBook.countByOption();
 					break;
-
-
+				case 7:
+					// System.out.println("Contact Details ");
+					AddressBookFileIO addressBookFileIO = new AddressBookFileIO();
+					addressBookFileIO.writeData(addressBookMap);
+					break;
+				case 8:
+					// System.out.println("Contact Details ");
+					AddressBookFileIO addressBookFileIO2 = new AddressBookFileIO();
+					System.out.println(addressBookFileIO2.readData());
+				case 9:
+					sc.close();// for closing the Scanner Class
+					return;
 				default:
 					System.out.println("You Entered Invalid Choice....!");
 					break;
