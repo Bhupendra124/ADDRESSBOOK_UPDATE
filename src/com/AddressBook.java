@@ -202,27 +202,30 @@ public class AddressBook {
 			}
 		}
 	}
-
-
-
-	// method for view element by option
-	public static void viewByOption(Map<String, AddressBook> addressBookMap) {
-		System.out.println("1. View By name");
-		System.out.println("2. View By city");
-		System.out.println("3. View By state");
+	// method for search contacts by option
+	public static void searchByOptions() {
+		System.out.println("1. Search By name");
+		System.out.println("2. Search By city");
+		System.out.println("3. Search By state");
 		System.out.println("4. Back");
 		System.out.print("Enter Your choice: ");
 		int choice = sc.nextInt();
 		sc.nextLine();
 		switch (choice) {
 			case 1:
-				viewByName(nameHashMap);
+				System.out.print("Enter name: ");
+				String name = sc.nextLine();
+				contactList.forEach(book -> addressBook.searchByName(name).forEach(System.out::println));
 				break;
 			case 2:
-				viewByCity(cityHashMap);
+				System.out.print("Enter city: ");
+				String city = sc.nextLine();
+				contactList.forEach(book -> addressBook.searchByCity(city).forEach(System.out::println));
 				break;
 			case 3:
-				viewByState(stateHashMap);
+				System.out.print("Enter state: ");
+				String state = sc.nextLine();
+				contactList.forEach(book -> addressBook.searchByState(state).forEach(System.out::println));
 				break;
 			case 4:
 				return;
@@ -230,6 +233,9 @@ public class AddressBook {
 				System.out.println("INVALID CHOICE!");
 		}
 	}
+
+
+
 
 
 	//method for view element by option
