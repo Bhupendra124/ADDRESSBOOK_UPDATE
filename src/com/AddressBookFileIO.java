@@ -6,6 +6,8 @@ import java.util.Map;
 
 public class AddressBookFileIO {
 public  void writeData(Map<String,AddressBook> addressBook){
+
+    System.out.println("inside file");
     File file=new File("B:\\ADDRESSBOOK git\\Contacts.txt");
     BufferedWriter bf=null;
 
@@ -14,6 +16,7 @@ public  void writeData(Map<String,AddressBook> addressBook){
         bf=new BufferedWriter(new FileWriter(file));
         //itrate map entries
         for (Map.Entry<String,AddressBook> entry:  addressBook.entrySet()) {
+            System.out.println(entry.getKey()+":"+entry.getValue());
             //put key and values seprated by a colon
             bf.write(entry.getKey() + ":" + entry.getValue());
 
@@ -21,6 +24,7 @@ public  void writeData(Map<String,AddressBook> addressBook){
             bf.newLine();
         }
         bf.flush();
+
 
     } catch (IOException e) {
         e.printStackTrace();

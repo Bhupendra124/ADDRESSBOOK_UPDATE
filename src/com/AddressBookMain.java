@@ -70,7 +70,7 @@ public class AddressBookMain {
 					addressBook.countByOption();
 					break;
 				case 7:
-					// System.out.println("Contact Details ");
+					System.out.println("Contact Details ");
 					AddressBookFileIO addressBookFileIO = new AddressBookFileIO();
 					addressBookFileIO.writeData(addressBookMap);
 					break;
