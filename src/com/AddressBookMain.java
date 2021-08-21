@@ -19,7 +19,9 @@ public class AddressBookMain {
 			System.out.println("6. Count Contacts ");
 			System.out.println("7. Write data");
 			System.out.println("8. Read data");
-			System.out.println("9. Exit");
+			System.out.println("9.writing csv");
+			System.out.println("10.Reading csv");
+			System.out.println("11. Exit");
 			System.out.print("Enter Your choice: ");
 			int choice = sc.nextInt();
 			sc.nextLine();
@@ -78,7 +80,15 @@ public class AddressBookMain {
 					// System.out.println("Contact Details ");
 					AddressBookFileIO addressBookFileIO2 = new AddressBookFileIO();
 					System.out.println(addressBookFileIO2.readData());
-				case 9:
+				case 9://ReadFromCSV fromCSV=new ReadFromCSV();
+
+					System.out.println(ReadFromCSV.writeData1(addressBookMap));
+				case 10:
+					System.out.println("Read Csv");
+					ReadFromCSV fromCSV=new ReadFromCSV();
+					//System.out.println(fromCSV.writeData(addressBookMap));
+					System.out.println(fromCSV.ReadDataCSV());
+				case 11:
 					sc.close();// for closing the Scanner Class
 					return;
 				default:
